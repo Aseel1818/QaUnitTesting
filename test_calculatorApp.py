@@ -23,14 +23,34 @@ class TestCalculate(unittest.TestCase):
         with self.assertRaises(ValueError):
              calculate('4','3','w')
     
+    def test_DividByZerrorEx2(self):
+        with self.assertRaises(ValueError):
+             calculate('3','10','w')
+
+    def test_DividByZerrorEx3(self):
+        with self.assertRaises(ValueError):
+             calculate('4','0','w')
     ##OR
 
     def test_DividByZerrorEx2(self):
         self.assertRaises(ValueError, calculate, '4','3','w') 
 
+    def test_DividByZerrorEx5(self):
+        self.assertRaises(ValueError, calculate, '12','0','w') 
+
+    def test_DividByZerrorEx7(self):
+        self.assertRaises(ValueError, calculate, '0','0','w') 
+
     def test_DividByZerrorRegex(self):
         with self.assertRaisesRegex(ValueError, "input is not a number!"):
              calculate('4','3','w')
+
+
+    
+    def test_DividByZerrorEx8(self):
+        with self.assertRaises(ValueError):
+             calculate('3','50','w')
+
 
     
     def test_AddPassWithMockEx1(self):
@@ -38,17 +58,41 @@ class TestCalculate(unittest.TestCase):
             result = calculate('1',2,4)
         self.assertEqual(result, 6)
 
+    def test_AddPassWithMockEx9(self):
+        with mock.patch('calculatorApp.add', return_value = 6):
+            result = calculate('1',2,4)
+        self.assertEqual(result, 10)
+
     @mock.patch('calculatorApp.add', return_value = 4)
     def test_AddPassWithMockEx2(self, mock_check):
         result = calculate('1',3,2)
         self.assertEqual(result, 4)
+
+    @mock.patch('calculatorApp.add', return_value = 4)
+    def test_AddPassWithMockEx3(self, mock_check):
+        result = calculate('1',10,5)
+        self.assertEqual(result, 4)
+
+    @mock.patch('calculatorApp.add', return_value = 60)
+    def test_AddPassWithMockEx3(self, mock_check):
+        result = calculate('1',3,5)
+        self.assertEqual(result, 4)
+
+    @mock.patch('calculatorApp.add', return_value = 4)
+    def test_AddPassWithMockEx4(self, mock_check):
+        result = calculate('1',100,6)
+        self.assertEqual(result, 4)
+
+
 
 
     def test_AddPassWithMocEx3(self):
         assert calculatorApp.add is self.MockClass1
         self.assertEqual(calculate('1',2,6), 5)
         
-
+    def test_AddPassWithMocEx4(self):
+        assert calculatorApp.add is self.MockClass1
+        self.assertEqual(calculate('1',1000,6), 6)
 
     def tearDown(self):
         print("tearDown .. ")

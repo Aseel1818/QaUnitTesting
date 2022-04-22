@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite name="nosetests" tests="1" errors="1" failures="0" skip="0"><testcase classname="nose.failure.Failure" name="runTest" time="0.000"><error type="exceptions.ImportError" message="cannot import name mock"><![CDATA[Traceback (most recent call last):
+  File "C:\Anaconda2\lib\unittest\case.py", line 329, in run
+    testMethod()
+  File "C:\Anaconda2\lib\site-packages\nose\loader.py", line 418, in loadTestsFromName
+    addr.filename, addr.module)
+  File "C:\Anaconda2\lib\site-packages\nose\importer.py", line 47, in importFromPath
+    return self.importFromDir(dir_path, fqname)
+  File "C:\Anaconda2\lib\site-packages\nose\importer.py", line 94, in importFromDir
+    mod = load_module(part_fqname, fh, filename, desc)
+  File "C:\Users\hp\project\QaUnitTesting\test_calculatorApp.py", line 2, in <module>
+    from unittest import mock
+ImportError: cannot import name mock
+]]></error></testcase></testsuite>
